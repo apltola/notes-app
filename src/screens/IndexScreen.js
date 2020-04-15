@@ -7,7 +7,6 @@ const IndexScreen = () => {
 
   return (
     <View>
-      <Text>index_sreeeeen</Text>
       <TouchableOpacity onPress={addBlogPost}>
         <Text>Add post</Text>
       </TouchableOpacity>
