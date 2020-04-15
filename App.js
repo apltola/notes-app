@@ -2,12 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { BlogProvider } from './src/context/BlogContext';
 import IndexScreen from './src/screens/IndexScreen';
+
 StatusBar.setBarStyle('dark-content');
 
 const Stack = createStackNavigator();
 
-export default function App() {
+function App() {
   /* return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
@@ -30,3 +32,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default () => {
+  return (
+    <BlogProvider>
+      <App />
+    </BlogProvider>
+  )
+}
