@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { BlogProvider } from './src/context/BlogContext';
+import { Provider } from './src/context/BlogContext';
 import IndexScreen from './src/screens/IndexScreen';
 
 StatusBar.setBarStyle('dark-content');
@@ -10,11 +10,6 @@ StatusBar.setBarStyle('dark-content');
 const Stack = createStackNavigator();
 
 function App() {
-  /* return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  ); */
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Index">
@@ -35,8 +30,8 @@ const styles = StyleSheet.create({
 
 export default () => {
   return (
-    <BlogProvider>
+    <Provider>
       <App />
-    </BlogProvider>
+    </Provider>
   )
 }
