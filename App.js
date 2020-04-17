@@ -7,6 +7,7 @@ import { Provider } from './src/context/BlogContext';
 import IndexScreen from './src/screens/IndexScreen';
 import BlogScreen from './src/screens/BlogScreen';
 import CreateBlogScreen from './src/screens/CreateBlogScreen';
+import EditBlogScreen from './src/screens/EditBlogScreen';
 
 StatusBar.setBarStyle('dark-content');
 
@@ -20,7 +21,7 @@ function App(props) {
           name="Index"
           component={IndexScreen}
           options={({ navigation }) => ({
-            title: 'Blog',
+            title: 'Blog App',
             headerRightContainerStyle: { paddingRight: 10 },
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Create')}>
@@ -29,8 +30,15 @@ function App(props) {
             ),
           })}
         />
-        <Stack.Screen name="Blog" component={BlogScreen} options={{ title: 'Blog' }} />
+        <Stack.Screen
+          name="Blog"
+          component={BlogScreen}
+          options={({ navigation, props }) => ({
+            title: 'Blog',
+          })}
+        />
         <Stack.Screen name="Create" component={CreateBlogScreen} options={{ title: 'Create Blog' }} />
+        <Stack.Screen name="Edit" component={EditBlogScreen} options={{ title: 'Edit Blog' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
