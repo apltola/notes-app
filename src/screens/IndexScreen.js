@@ -5,10 +5,10 @@ import { Context } from '../context/BlogContext';
 import { iosColors } from '../util/globalStyles';
 
 const IndexScreen = () => {
-  const { state, addBlogPost } = useContext(Context);
+  const { state, addBlogPost, deleteBlogPost } = useContext(Context);
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Button title="Add post" onPress={addBlogPost} />
 
       <FlatList
@@ -20,10 +20,10 @@ const IndexScreen = () => {
             <View style={styles.blogPost}>
               <View style={{justifyContent: 'center'}}>
                 <Text style={styles.blogTitle}>
-                  {item.title}
+                  {item.title} - {item.id}
                 </Text>
               </View>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                 <MaterialIcons name="delete-forever" style={styles.deleteIcon} />
               </TouchableOpacity>
             </View>
@@ -36,7 +36,7 @@ const IndexScreen = () => {
 
 const styles = StyleSheet.create({
   list: {
-
+    paddingVertical: 10,
   },
   blogPost: {
     //borderWidth: 1,
