@@ -9,7 +9,6 @@ const IndexScreen = ({ navigation }) => {
 
   return (
     <View style={{flex: 1}}>
-      <Button title="Add post" onPress={addBlogPost} />
       {state.length > 0 ?
         <FlatList
           style={styles.list}
@@ -21,7 +20,7 @@ const IndexScreen = ({ navigation }) => {
                 <View style={{justifyContent: 'center'}}>
                   <TouchableOpacity onPress={() => navigation.navigate('Blog', { blog: item })}>
                     <Text style={styles.blogTitle}>
-                      {item.title} - {item.id}
+                      {item.title}
                     </Text>
                   </TouchableOpacity>
                 </View>
