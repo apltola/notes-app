@@ -16,7 +16,7 @@ const CreateBlogScreen = ({ navigation }) => {
       <TextInput value={content} onChangeText={text => setContent(text)} style={styles.content} />
 
       <Button
-        title="Add Blog Post"
+        title="Add Note"
         onPress={() => {
           addBlogPost(title, content, () => {
             navigation.navigate('Index')

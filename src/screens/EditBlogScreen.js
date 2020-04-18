@@ -18,9 +18,8 @@ const EditBlogScreen = ({ navigation, route }) => {
       <TextInput value={content} onChangeText={text => setContent(text)} style={styles.content} />
 
       <Button
-        title="Save Blog Post"
+        title="Save Note"
         onPress={() => editBlogPost(blog.id, title, content, () => {
-          //navigation.navigate('Index')
           navigation.pop();
         })}
       />

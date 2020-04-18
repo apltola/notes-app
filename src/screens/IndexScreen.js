@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Context } from '../context/BlogContext';
-import { iosColors } from '../util/globalStyles';
 
 const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
@@ -32,7 +31,7 @@ const IndexScreen = ({ navigation }) => {
           }}
         />
       
-        : <Text style={styles.noPosts}>· No posts ·</Text>
+        : <Text style={styles.noPosts}>· No notes ·</Text>
       }
     </View>
   )

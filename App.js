@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Button } from 'react-native';
+import { StatusBar, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -13,7 +13,7 @@ StatusBar.setBarStyle('dark-content');
 
 const Stack = createStackNavigator();
 
-function App(props) {
+function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Index">
@@ -21,7 +21,7 @@ function App(props) {
           name="Index"
           component={IndexScreen}
           options={({ navigation }) => ({
-            title: 'Blog App',
+            title: 'Notes App',
             headerRightContainerStyle: { paddingRight: 10 },
             headerRight: () => (
               <TouchableOpacity onPress={() => navigation.navigate('Create')}>
@@ -37,21 +37,12 @@ function App(props) {
             title: 'Blog',
           })}
         />
-        <Stack.Screen name="Create" component={CreateBlogScreen} options={{ title: 'Create Blog' }} />
-        <Stack.Screen name="Edit" component={EditBlogScreen} options={{ title: 'Edit Blog' }} />
+        <Stack.Screen name="Create" component={CreateBlogScreen} options={{ title: 'Create Note' }} />
+        <Stack.Screen name="Edit" component={EditBlogScreen} options={{ title: 'Edit Note' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default () => {
   return (
