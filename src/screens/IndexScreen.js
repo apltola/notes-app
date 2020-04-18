@@ -1,10 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Button } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Context } from '../context/BlogContext';
 
 const IndexScreen = ({ navigation }) => {
-  const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+  const { state, getBlogPosts, deleteBlogPost } = useContext(Context);
+
+  useEffect(() => {
+    //getBlogPosts();
+
+    const unsubscribe = navigation.addListener('focus', () => {
+      console.log('INDEX FOCUS!!!');
+      getBlogPosts();
+    });
+
+    return unsubscribe;
+  }, []);
 
   return (
     <View style={{flex: 1}}>

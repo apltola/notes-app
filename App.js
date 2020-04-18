@@ -29,6 +29,11 @@ function App() {
               </TouchableOpacity>
             ),
           })}
+          /* listeners={{
+            focus: () => {
+              console.log('FOCUS!!!!!!!!!!!!!');
+            }
+          }} */
         />
         <Stack.Screen
           name="Blog"
